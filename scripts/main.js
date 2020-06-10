@@ -14,7 +14,7 @@ let bg1; //background1
 let dados; //tabela de dados do album
 function preload() { 
   bg1 = loadImage("assets/bg1.jpg");
-  dados = loadTable('../album/dados.csv', 'csv', 'header');
+  //dados = loadTable('../album/dados.csv', 'csv', 'header');
 }
 
 function setup() {
