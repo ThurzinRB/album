@@ -36,8 +36,8 @@ function setup() {
   }
   texto = new textreveal("clique para continuar", width / 2, height / 1.5);
   
-  print(dados.getRowCount() + ' total rows in table');
-  print(dados.getColumnCount() + ' total columns in table');
+  //print(dados.getRowCount() + ' total rows in table');
+  //print(dados.getColumnCount() + ' total columns in table');
     
 }
 
