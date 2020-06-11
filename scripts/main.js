@@ -24,10 +24,10 @@ function preload() {
   bg1 = loadImage("/assets/bg1.jpg"); //aaaaaa
   dados = loadTable("./album/dados.csv", "csv", "header");
 }
-
+let cnv;
 function setup() {
   //~~((1.7));
-  createCanvas(windowWidth, windowHeight); //criando canva
+  cnv = createCanvas(windowWidth, windowHeight); //criando canva
   //background("black");
   background(cordoFundo);
   lastmousex = mouseX;
@@ -52,13 +52,14 @@ function draw() {
   //print(chama);
   //background(0);
   inicio(pag < 3, pag);
-  book(pag);
+  book(pag,time);
   //print(pag);
   //print('dnv:'+ chama);
   chama = transicao(2, time, chama);
   time++;
   //ellipse(width/2, height/2 , 100,200);
   //noLoop();
+  cnv.position(mouseX*0.01-width/2),(mouseY*0.01height/2));
 }
 
 function transicao(value = 1, time = 0, chama) {
@@ -100,7 +101,7 @@ function transicao(value = 1, time = 0, chama) {
       let num = 20;
       let a = 500;
       let b = altura / num;
-      let troca = int((width / vel) * 0.5);
+      let troca = int((width / vel) * 0.8);
       let tempototal = width / vel + base/vel;
 
       if (time < tempototal) {
@@ -140,7 +141,7 @@ function mousePressed() {
 }
 
 function nextPag() {
-  if (pag > 1 + dados.getRowCount()) location.reload();;
+  if (pag > 1 + dados.getRowCount()); // location.reload();;
   pag++;
 }
 

@@ -1,5 +1,5 @@
 class flower {
-  constructor(xPos, yPos, numLeafs, speed, scalef, ang = 0, angvel = 0.001) {
+  constructor(xPos, yPos, numLeafs = 11, speed, scalef , ang = 0, angvel = 0.001) {
     // this.xPos = this.xPos +this.rad/2;
     this.pos = createVector(xPos, yPos);
     this.vel = createVector(speed, speed);
@@ -76,7 +76,7 @@ class textreveal {
   }
   show() {
     push();
-    textAlign(CENTER);
+    textAlign(CENTER, CENTER);
     textSize(this.size);
     if (this.reveal < this.sourceText.length) this.reveal += 0.5;
     text(this.sourceText.substring(0, this.reveal), this.x, this.y);
@@ -84,7 +84,7 @@ class textreveal {
   }
   unshow() {
     push();
-    textAlign(CENTER);
+    textAlign(CENTER, CENTER);
     textSize(this.size);
     if (this.reveal > 0) this.reveal -= 0.5;
     text(this.sourceText.substring(0, this.reveal), this.x, this.y);
