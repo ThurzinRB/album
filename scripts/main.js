@@ -59,7 +59,7 @@ function draw() {
   time++;
   //ellipse(width/2, height/2 , 100,200);
   //noLoop();
-  cnv.position(mouseX*0.01-width/2),(mouseY*0.01height/2));
+  cnv.position((mouseX*0.01-width/2),(mouseY*0.01*height/2));
 }
 
 function transicao(value = 1, time = 0, chama) {
