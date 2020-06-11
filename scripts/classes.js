@@ -84,7 +84,13 @@ class textreveal {
     text(this.sourceText.substring(0, this.reveal), this.x, this.y);
     pop();
   }
+  updateLocation(newX = this.x, newY = this.y){
+    this.x = newX;
+    this.y = newY;
+  }
 }
+
+
 /*
 let reveal = 0
 function showtext(texto, x, y, autov){

@@ -42,12 +42,17 @@ function setup() {
 function draw() {
   //background(0);
   inicio(pag < 3,pag);
+  book(pag);
 }
 
 //reconhece cliques do mouse
 function mousePressed() {
   pag = pag + 1;
-  if (pag > 3) pag = 0;
+  if (pag > 2 + dados.getRowCount()) pag = 0;
+}
+
+function nextPag(){
+  pag++;
 }
 
 //botoes
@@ -63,4 +68,5 @@ function keyPressed() {
 //redimensiona a página
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  texto.updateLocation(windowWidth/2)
 }
