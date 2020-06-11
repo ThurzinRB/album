@@ -27,7 +27,7 @@ function preload() {
 let cnv;
 function setup() {
   //~~((1.7));
-  cnv = createCanvas(windowWidth, windowHeight); //criando canva
+  cnv = createCanvas(windowWidth*1.05, windowHeight*1.05); //criando canva
   //background("black");
   background(cordoFundo);
   lastmousex = mouseX;
@@ -59,7 +59,7 @@ function draw() {
   time++;
   //ellipse(width/2, height/2 , 100,200);
   //noLoop();
-  cnv.position(mouseX*0.01-width/2),(mouseY*0.01height/2));
+  cnv.position((mouseX-height/2)*0.01,(mouseY-width/2)*0.01);
 }
 
 function transicao(value = 1, time = 0, chama) {
@@ -156,6 +156,6 @@ function keyPressed() {
 
 //redimensiona a página
 function windowResized() {
-  resizeCanvas(windowWidth, windowHeight);
+  resizeCanvas(windowWidth*1.05, windowHeight*1.05);
   texto.updateLocation(windowWidth / 2);
 }
