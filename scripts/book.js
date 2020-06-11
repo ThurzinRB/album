@@ -50,8 +50,9 @@ function book(pag,time) {
     fill('white');
     rect(width/2,height*.85,350,40,20);
     noStroke();
-    color(cordoFundo);
-    clique.show();
+    color('black');
+    //clique.show();
+    text('clique para continuar',width/2,height*85)
   pop();
   
 }
