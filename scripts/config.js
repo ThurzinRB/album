@@ -1,1 +1,1 @@
-let cordoFundo = '#ea899a'; 
+let cordoFundo = "#EA899A";
