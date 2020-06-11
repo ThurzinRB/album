@@ -39,19 +39,21 @@ function inicio(ativo,pag) {
   if (pag == 2) {
     
     //efeito fadeout
-    if (luz == true && luzvalue < 255) luzvalue += 1;
-    if (luz == false && luzvalue > 0) luzvalue -= 1;
+    if (luz == true && luzvalue <= 255) luzvalue += 1;
+    if (luz == false && luzvalue >= 0) luzvalue -= 1;
     colorMode(RGB, 255);
-    background(255,255,255,luzvalue * 10);
+    //background(255,255,255,luzvalue * 10);
     
     
     texto.unshow();
     // background(196,162,143,luzvalue);
     //bg1.resize(100, 100)
-    
-    
+    background(0,luzvalue);
+    if(luzvalue == 255) pag = 3;
+    /*
     tint(255, luzvalue * 10);
     imageMode(CENTER);
     image(bg1, (mouseX*0.01+width/2),(mouseY*0.01+height/2));//desenha a imagem em um local determinado pelo mouse
+  */
   }
 }
