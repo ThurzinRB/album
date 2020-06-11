@@ -1,8 +1,8 @@
 function inicio(ativo,pag) {
   if (ativo == false) return; //verifica se a função deve rodar ou não
   if (pag != 2) { //nas páginas que não são a 2 algumas linhas estão em comum.
-    background(0);
-    
+    //background(0);
+    background(cordoFundo);
     //desenhar flores
     for (var i = 0; i < numero_flores; i++) {
       flor[i].show();
@@ -11,7 +11,7 @@ function inicio(ativo,pag) {
     
     //desenha o retângulo do meio com os textos
     stroke("white");
-    fill("black");
+    fill(cordoFundo);
     rectMode(CENTER);
     rect(width / 2, height / 2, 300, 150, 10);
     scribble.scribbleRoundedRect(width / 2, height / 2, 300, 150, 10);
@@ -33,6 +33,9 @@ function inicio(ativo,pag) {
     textAlign(CENTER);
     //showtext('clique para continuar',width/2,height/1.5,true);
     rect(texto.x, height / 2, 300, 150, 10);
+    stroke(cordoFundo);
+    strokeWeight(3);
+    fill('white');
     texto.show();
     //text("clique para continuar", width/2,height/1.5);
     luzvalue = 0;

@@ -1,0 +1,1 @@
+let cordoFundo = '#ea899a'; 
