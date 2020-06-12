@@ -28,7 +28,7 @@ function preload() {
 let cnv;
 function setup() {
   //~~((1.7));
-  cnv = createCanvas(windowWidth*1.05, windowHeight*1.05); //criando canva
+  cnv = createCanvas(windowWidth * 1.05, windowHeight * 1.05); //criando canva
   //background("black");
   background(cordoFundo);
   lastmousex = mouseX;
@@ -54,8 +54,8 @@ function draw() {
   //print(chama);
   //background(0);
   inicio(pag < 3, pag);
-  book(pag,time2);
-  
+  book(pag, time2);
+
   //print(pag);
   //print('dnv:'+ chama);
   chama = transicao(2, time, chama);
@@ -65,8 +65,8 @@ function draw() {
   pop();
   coracaofinal(pag);
   //noLoop();
-  
-  cnv.position((mouseX-width/2)*0.01,(mouseY-height/2)*0.01);
+
+  cnv.position((mouseX - width / 2) * 0.01, (mouseY - height / 2) * 0.01);
 }
 
 function transicao(value = 1, time = 0, chama) {
@@ -109,11 +109,11 @@ function transicao(value = 1, time = 0, chama) {
       let a = 500;
       let b = altura / num;
       let troca = int((width / vel) * 1.0);
-      let tempototal = width / vel + base/vel;
-      
+      let tempototal = width / vel + base / vel;
+
       //print('troca '+ troca + ' time '+ time + ' pag '+ pag);
-      
-      
+
+
       if (time < tempototal) {
         //clear();
         //background(cordoFundo);
@@ -145,21 +145,25 @@ function transicao(value = 1, time = 0, chama) {
 
 //reconhece cliques do mouse
 function mousePressed() {
-  if(pag == 0){
+  if (pag == 0) {
     nextPag();
     return 0;
   }
-  else{
-  chama = !chama;
-  time = 0;
+  else {
+    chama = !chama;
+    time = 0;
   }
   //pag = pag + 1;
 }
 
 function nextPag() {
-  if (pag > 1 + dados.getRowCount() + 1) pag = 0; // location.reload();;
+  if (pag > 1 + dados.getRowCount() + 1) {
+
+    pag = 0;
+    window.open("https://thurzinrb.github.io/fouriernamoradoss2020/fourier-draw/")
+  } // location.reload();;
   pag++;
-  time2=0;
+  time2 = 0;
 }
 
 //botoes
@@ -173,6 +177,6 @@ function keyPressed() {
 
 //redimensiona a página
 function windowResized() {
-  resizeCanvas(windowWidth*1.05, windowHeight*1.05);
+  resizeCanvas(windowWidth * 1.05, windowHeight * 1.05);
   texto.updateLocation(windowWidth / 2);
 }
