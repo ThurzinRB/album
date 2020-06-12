@@ -1,5 +1,13 @@
 class flower {
-  constructor(xPos, yPos, numLeafs = 11, speed, scalef , ang = 0, angvel = 0.001) {
+  constructor(
+    xPos,
+    yPos,
+    numLeafs = 11,
+    speed,
+    scalef,
+    ang = 0,
+    angvel = 0.001
+  ) {
     // this.xPos = this.xPos +this.rad/2;
     this.pos = createVector(xPos, yPos);
     this.vel = createVector(speed, speed);
@@ -119,26 +127,32 @@ function coracao() {
   }
 
   for (i = 0; i < hearts.length; i++) {
+    push();
     hearts[i].display();
     hearts[i].move();
+    pop();
   }
+  angleMode(RADIANS);
   pop();
 }
 
-
 function makeHeart(x, y) {
-  push()
+  push();
   this.x = x;
   this.y = y;
   var size = 40;
   var S = second();
-  pop()
+  pop();
 
   this.display = function() {
+  
     push();
-    noStroke();
+    //noStroke();
+    stroke(0);
+    strokeWeight(0.5);
     var opacity = 200;
     fill(220, 113, 113, opacity);
+    //fill(223, 119, 122, 255);
     rotate(45);
     rect(this.x, this.y, size, size);
     arc(this.x - size / 2, this.y, size + 10, size, 90, 270, CHORD);
@@ -150,6 +164,32 @@ function makeHeart(x, y) {
     this.x -= speed;
     this.y -= speed;
   };
+}
+
+var xoff = 0,yoff = 0,zoff = 0;
+function coracaofinal(pag) {
+  if (pag < 3 + dados.getRowCount()) return 0;  //KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+  //window.open("https://editor.p5js.org/arthurrrbello@gmail.com/full/MNdMp0RUb");
+  background(cordoFundo);
+  beginShape();
+  fill(255,map(mouseX, 0, width/2,0,255));
+  stroke(255);
+  //translate(width/2,height/2)
+	for (a = 0; a < TWO_PI; a+=0.01) {
+    xoff=cos(a);
+    yoff=sin(a);
+    r=1*map(noise(xoff,yoff,zoff),0,1,8,11);
+    
+		x=r*(16*sin(a)*sin(a)*sin(a))+width/2;
+    y=-r*(13*cos(a)-5*cos(2*a)-2*cos(3*a)-cos(4*a))+height/2;
+    vertex(x,y);
+		
+		//xoff += 0.01;
+	}
+  endShape(CLOSE);
+	zoff+=0.01
+	//print(noise(x));
+	//noLoop()
 }
 
 /*

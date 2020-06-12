@@ -3,7 +3,7 @@ let booksetup = 0; //variavel de inicialização
 let pagina = []; //criação de array de paginas
 let clique;
 function book(pag,time) {
-  if (pag < 3) return; //função roda somente após pag >= 3
+  if (pag < 3 || pag > 2 + dados.getRowCount()) return 0; //função roda somente após pag >= 3
   if (booksetup == 0) {
     color("white");
     frame = new Scribble();
@@ -17,19 +17,21 @@ function book(pag,time) {
   }
   //background(0);
   //particulas();
-  push();
+  //push();
   coracao();
-  pop();
+  //pop();
   //tint(time)
   //cor = color(cordoFundo);
   //cor.levels[3]=100
   //print('time '+time);
-  let opac = time
-  if (pag>3){
-    opac-=30
-    opac+=17
-  }
-  print('opac ' +opac+' pag ' + pag);
+  let opac = time;
+
+  // if (pag>3){
+  //   opac-=50
+  //   opac+=17
+  // }
+  opac = constrain(opac,0,255);
+  //print('opac ' +opac+' pag ' + pag);
   //print('pag ' + pag);
   //tint(cor.levels[0],cor.levels[1],cor.levels[2],exp(opac*2));
   tint(255,exp(opac*0.1));
@@ -43,15 +45,20 @@ function book(pag,time) {
   //clique para próxima pag
   push();
     rectMode(CENTER);
-    noStroke();
+    stroke(0);
+    strokeWeight(1);
     fill('#b76e79');
     rect(width/2+10,height*.85+10,350,40,20);
-    strokeWeight(3);
+    strokeWeight(1);
     fill('white');
     rect(width/2,height*.85,350,40,20);
     noStroke();
-    color(cordoFundo);
-    clique.show();
+    //strokeWeight(1);
+    fill(cordoFundo);
+    textSize(18);
+    textAlign(CENTER,CENTER);
+    //clique.show();
+    text("clique para continuar",width/2,height*.85);
   pop();
   
 }

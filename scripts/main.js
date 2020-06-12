@@ -11,6 +11,7 @@ var pag = 0; // variável controle de caminho
 var luz = true;
 let luzvalue = 0;
 var time = 0;
+var time2 = 0
 /////////////////////////////////////////////////////////////////////
 
 let chama = false;
@@ -21,7 +22,7 @@ let bg1; //background1
 let dados; //tabela de dados do album
 
 function preload() {
-  bg1 = loadImage("/assets/bg1.jpg"); //aaaaaa
+  //bg1 = loadImage("/assets/bg1.jpg"); //aaaaaa
   dados = loadTable("./album/dados.csv", "csv", "header");
 }
 let cnv;
@@ -49,21 +50,23 @@ function setup() {
 }
 
 function draw() {
+  push();
   //print(chama);
   //background(0);
   inicio(pag < 3, pag);
-  book(pag,time);
+  book(pag,time2);
+  
   //print(pag);
   //print('dnv:'+ chama);
   chama = transicao(2, time, chama);
   time++;
+  time2++;
   //ellipse(width/2, height/2 , 100,200);
+  pop();
+  coracaofinal(pag);
   //noLoop();
-<<<<<<< HEAD
-  cnv.position((mouseX*0.01-width/2),(mouseY*0.01*height/2));
-=======
-  cnv.position((mouseX-height/2)*0.01,(mouseY-width/2)*0.01);
->>>>>>> 1c5db39c52ec7a134a4aa353cac6b5fb0cd7b16f
+  
+  cnv.position((mouseX-width/2)*0.01,(mouseY-height/2)*0.01);
 }
 
 function transicao(value = 1, time = 0, chama) {
@@ -105,9 +108,12 @@ function transicao(value = 1, time = 0, chama) {
       let num = 20;
       let a = 500;
       let b = altura / num;
-      let troca = int((width / vel) * 0.8);
+      let troca = int((width / vel) * 1.0);
       let tempototal = width / vel + base/vel;
-
+      
+      //print('troca '+ troca + ' time '+ time + ' pag '+ pag);
+      
+      
       if (time < tempototal) {
         //clear();
         //background(cordoFundo);
@@ -139,14 +145,21 @@ function transicao(value = 1, time = 0, chama) {
 
 //reconhece cliques do mouse
 function mousePressed() {
+  if(pag == 0){
+    nextPag();
+    return 0;
+  }
+  else{
   chama = !chama;
   time = 0;
+  }
   //pag = pag + 1;
 }
 
 function nextPag() {
-  if (pag > 1 + dados.getRowCount()); // location.reload();;
+  if (pag > 1 + dados.getRowCount() + 1) pag = 0; // location.reload();;
   pag++;
+  time2=0;
 }
 
 //botoes
