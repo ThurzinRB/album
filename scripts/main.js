@@ -145,13 +145,19 @@ function transicao(value = 1, time = 0, chama) {
 
 //reconhece cliques do mouse
 function mousePressed() {
+  if(pag == 0){
+    nextPag();
+    return 0;
+  }
+  else{
   chama = !chama;
   time = 0;
+  }
   //pag = pag + 1;
 }
 
 function nextPag() {
-  if (pag > 1 + dados.getRowCount() + 1); // location.reload();;
+  if (pag > 1 + dados.getRowCount() + 1) pag = 0; // location.reload();;
   pag++;
   time2=0;
 }

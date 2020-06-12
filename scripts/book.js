@@ -17,9 +17,9 @@ function book(pag,time) {
   }
   //background(0);
   //particulas();
-  push();
+  //push();
   coracao();
-  pop();
+  //pop();
   //tint(time)
   //cor = color(cordoFundo);
   //cor.levels[3]=100

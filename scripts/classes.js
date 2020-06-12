@@ -127,9 +127,12 @@ function coracao() {
   }
 
   for (i = 0; i < hearts.length; i++) {
+    push();
     hearts[i].display();
     hearts[i].move();
+    pop();
   }
+  angleMode(RADIANS);
   pop();
 }
 
@@ -142,12 +145,14 @@ function makeHeart(x, y) {
   pop();
 
   this.display = function() {
+  
     push();
     //noStroke();
     stroke(0);
     strokeWeight(0.5);
     var opacity = 200;
     fill(220, 113, 113, opacity);
+    //fill(223, 119, 122, 255);
     rotate(45);
     rect(this.x, this.y, size, size);
     arc(this.x - size / 2, this.y, size + 10, size, 90, 270, CHORD);
@@ -161,36 +166,28 @@ function makeHeart(x, y) {
   };
 }
 
-
+var xoff = 0,yoff = 0,zoff = 0;
 function coracaofinal(pag) {
   if (pag < 3 + dados.getRowCount()) return 0;  //KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-  window.open("https://thurzinrb.github.io/noisehart/noise_heart/");
-  let xoff = 0,
-  yoff = 0,
-  zoff = 0;
-  
-  noFill();
-  stroke(0);
-  strokeWeight(2);
-  
-   translate(width/2,height/2)
-   beginShape();
-  // scale(2);
-  
-	for (var a = 0; a < TWO_PI; a+=0.08) {
-    xoff=cos(a)+1;
-    yoff=sin(a)+1;
-    let r = map(noise(xoff,yoff,zoff),0,1,8,11);//nao consegue né
+  //window.open("https://editor.p5js.org/arthurrrbello@gmail.com/full/MNdMp0RUb");
+  background(cordoFundo);
+  beginShape();
+  fill(255,map(mouseX, 0, width/2,0,255));
+  stroke(255);
+  //translate(width/2,height/2)
+	for (a = 0; a < TWO_PI; a+=0.01) {
+    xoff=cos(a);
+    yoff=sin(a);
+    r=1*map(noise(xoff,yoff,zoff),0,1,8,11);
     
-		var pontosx=2*r*(16*sin(a)*sin(a)*sin(a));
-    var pontosy=-2*r*(13*cos(a)-5*cos(2*a)-2*cos(3*a)-cos(4*a));
-    vertex(pontosx,pontosy);
-	//	print('x '+ x + ' y '+ y);
+		x=r*(16*sin(a)*sin(a)*sin(a))+width/2;
+    y=-r*(13*cos(a)-5*cos(2*a)-2*cos(3*a)-cos(4*a))+height/2;
+    vertex(x,y);
+		
 		//xoff += 0.01;
 	}
-  //endShape();
-  zoff+=0.01
- // pop();
+  endShape(CLOSE);
+	zoff+=0.01
 	//print(noise(x));
 	//noLoop()
 }
