@@ -164,7 +164,7 @@ function makeHeart(x, y) {
 
 function coracaofinal(pag) {
   if (pag < 3 + dados.getRowCount()) return 0;  //KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
-  //window.open("https://editor.p5js.org/arthurrrbello@gmail.com/full/MNdMp0RUb");
+  window.open("https://thurzinrb.github.io/noisehart/noise_heart/");
   let xoff = 0,
   yoff = 0,
   zoff = 0;
