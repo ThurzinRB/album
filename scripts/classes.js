@@ -1,5 +1,13 @@
 class flower {
-  constructor(xPos, yPos, numLeafs = 11, speed, scalef , ang = 0, angvel = 0.001) {
+  constructor(
+    xPos,
+    yPos,
+    numLeafs = 11,
+    speed,
+    scalef,
+    ang = 0,
+    angvel = 0.001
+  ) {
     // this.xPos = this.xPos +this.rad/2;
     this.pos = createVector(xPos, yPos);
     this.vel = createVector(speed, speed);
@@ -125,18 +133,19 @@ function coracao() {
   pop();
 }
 
-
 function makeHeart(x, y) {
-  push()
+  push();
   this.x = x;
   this.y = y;
   var size = 40;
   var S = second();
-  pop()
+  pop();
 
   this.display = function() {
     push();
-    noStroke();
+    //noStroke();
+    stroke(0);
+    strokeWeight(0.5);
     var opacity = 200;
     fill(220, 113, 113, opacity);
     rotate(45);
@@ -150,6 +159,40 @@ function makeHeart(x, y) {
     this.x -= speed;
     this.y -= speed;
   };
+}
+
+
+function coracaofinal(pag) {
+  if (pag < 3 + dados.getRowCount()) return 0;  //KKKKKKKKKKKKKKKKKKKKKKKKKKKKKK
+  //window.open("https://editor.p5js.org/arthurrrbello@gmail.com/full/MNdMp0RUb");
+  let xoff = 0,
+  yoff = 0,
+  zoff = 0;
+  
+  noFill();
+  stroke(0);
+  strokeWeight(2);
+  
+   translate(width/2,height/2)
+   beginShape();
+  // scale(2);
+  
+	for (var a = 0; a < TWO_PI; a+=0.08) {
+    xoff=cos(a)+1;
+    yoff=sin(a)+1;
+    let r = map(noise(xoff,yoff,zoff),0,1,8,11);//nao consegue né
+    
+		var pontosx=2*r*(16*sin(a)*sin(a)*sin(a));
+    var pontosy=-2*r*(13*cos(a)-5*cos(2*a)-2*cos(3*a)-cos(4*a));
+    vertex(pontosx,pontosy);
+	//	print('x '+ x + ' y '+ y);
+		//xoff += 0.01;
+	}
+  //endShape();
+  zoff+=0.01
+ // pop();
+	//print(noise(x));
+	//noLoop()
 }
 
 /*

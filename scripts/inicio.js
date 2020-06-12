@@ -1,5 +1,6 @@
 function inicio(ativo, pag) {
   if (ativo == false) return; //verifica se a função deve rodar ou não
+  
   if (pag != 2) {
     //nas páginas que não são a 2 algumas linhas estão em comum.
     //background(0);
@@ -40,8 +41,8 @@ function inicio(ativo, pag) {
   }
   if (pag == 2) {
     //efeito fadeout
-    if (luz == true && luzvalue <= 255) luzvalue += 1;
-    if (luz == false && luzvalue >= 0) luzvalue -= 1;
+    if (luz == true && luzvalue <= 255) luzvalue += 50;
+    if (luz == false && luzvalue >= 0) luzvalue -= 50;
     colorMode(RGB, 255);
     //background(255,255,255,luzvalue * 10);
 
@@ -51,7 +52,7 @@ function inicio(ativo, pag) {
     background(color(cordoFundo), luzvalue);
     if (luzvalue > 100) {
       nextPag();
-      time = 0
+      //time = 0
     } /*
     tint(255, luzvalue * 10);
     imageMode(CENTER);
